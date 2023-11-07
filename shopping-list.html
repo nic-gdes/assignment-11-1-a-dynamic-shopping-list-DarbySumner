@@ -11,15 +11,25 @@
 
     <div>
       <label for="item" class="label-item">Enter a new item:</label>
-      <input type="text" class="input-form" name="item" id="item">
+      <input type="text" class="form" placeholder="e.g. milk" name="item" id="item">
       <input type="button" class="button" value="Submit">
     </div>
-
+  <div class="list">
     <ul>
 
     </ul>
+  </div>
 
     <script>
+      const list = document.querySelector('.list');
+      const inputForm = document.querySelector('.form');
+      const button = document.querySelector('.button');
+
+      button.addEventListener('click', function(e)) {
+        let inputForm = input.value;
+        input.value = "";
+      }
+
 
     </script>
   </body>
