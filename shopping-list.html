@@ -10,12 +10,11 @@
     <h1>My magnificent shopping list</h1>
 
     <div>
-      <label for="item" class="label-item">Enter a new item:</label>
-      <input type="text" class="form" placeholder="e.g. milk" name="item" id="item">
-      <input type="button" class="button" value="Submit">
+      <div class="form"><input type="text" id="myInput" placeholder="Item..."></div>
+      <span onclick="newElement()" class="button">Add</span>
     </div>
-  <div class="list">
-    <ul>
+  
+    <ul id="myUL">
       <li></li>
       <li></li>
       <li></li>
@@ -30,12 +29,12 @@
       // Adds new item to list
       
       function newItem() {
-        var li = document.newItem("li");
+        var li = document.createItem("li");
         var inputValue = document.getElementById("myInput").value;
         var t = document.createTextNode(inputValue);
           li.appendChild(t);
           if (inputValue === '') {
-            aler t("You must type something here.");
+            alert("You must type something here.");
           } else {
 
         document.getElementById("myUL").appendChild(li);
@@ -43,7 +42,7 @@
       document.getElementById("myInput").value = "";
 
       var span = document.createElement("SPAN");
-      var txt = document.createTextNode(\u00D7);
+      var txt = document.createTextNode("\u00D7");
         span.className = "close";
         span.appendChild(txt);
         li.appendChild(span);
@@ -69,6 +68,15 @@
        myNodeList[i].appendChild(span);
      }
 
+     // Click delete button to hide current item
+     var close = document.getElementsByClassName("close");
+     var i;
+     for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+     }
     </script>
   </body>
 </html>
